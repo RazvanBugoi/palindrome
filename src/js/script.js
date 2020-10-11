@@ -1,8 +1,15 @@
 let btn = document.getElementById('add');
 let inputValue = document.getElementById('input');
+let lengthRequired = document.getElementById("message")
 
 function palindrome(str) {
-    return str.split('').reverse().join('') === str;
+    if (str.length > 2) {
+        str.split('').reverse().join('') === str;
+    } else {
+        let message = document.createElement("p");
+        message.innerHTML = 'Sorry. The word has to be longer than 2 characters';
+        lengthRequired.appendChild(message)
+    }
 }
 
 btn.onclick = () => {
