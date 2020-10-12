@@ -1,21 +1,18 @@
 let btn = document.getElementById('add');
 let inputValue = document.getElementById('input');
-let lengthRequired = document.getElementById("message")
+let displayMessage = document.getElementById("message")
+let message = document.createElement('p');
 
 function palindrome(str) {
-    if (str.length > 2) {
-        str.split('').reverse().join('') === str;
-    } else {
-        let message = document.createElement("p");
-        message.innerHTML = 'Sorry. The word has to be longer than 2 characters';
-        lengthRequired.appendChild(message)
-    }
+    return str.split('').reverse().join('') === str;
 }
 
 btn.onclick = () => {
     if (palindrome(inputValue.value)) {
-        alert('Succes! The input word is a palindrome.');
+        message.innerHTML = 'Succes! The input word is a palindrome.';
+        displayMessage.appendChild(message);
     } else {
-        alert('Not this time! This word is not a palindrome');
+        message.innerHTML = 'Not this time! This word is not a palindrome';
+        displayMessage.appendChild(message);
     }
 }
